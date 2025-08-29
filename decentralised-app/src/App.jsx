@@ -4,7 +4,8 @@ import { UnsafeBurnerWalletAdapter } from '@solana/wallet-adapter-wallets';
 import {
     WalletModalProvider,
     WalletDisconnectButton,
-    WalletMultiButton
+    WalletMultiButton,
+    WalletConnectButton
 } from '@solana/wallet-adapter-react-ui';
 import { clusterApiUrl } from '@solana/web3.js';
 
@@ -14,13 +15,15 @@ import Airdrop from './Airdrop';
 function App() {
 
   return (
-    <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
+    <ConnectionProvider endpoint={endpoint}>
             <WalletProvider wallets={[]} autoConnect>
                 <WalletModalProvider>
+      <WalletMultiButton/>
       <div>
         Hi Hello Welcome to our App
       </div>
       <Airdrop />
+      <WalletDisconnectButton/>
           </WalletModalProvider>
         </WalletProvider>
     </ConnectionProvider>
